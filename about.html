@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funky Teens · About Us</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #fcf8f0;
+            color: #1e1e1e;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+            color: white;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-bottom: 2px solid #ffd966;
+        }
+
+        .brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 350px;
+            margin: 0 1rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.7rem 2.5rem 0.7rem 1.2rem;
+            border-radius: 40px;
+            border: none;
+            background: #2a2a2a;
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #f7971e;
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #f5b342;
+            cursor: pointer;
+        }
+
+        .cart-icon {
+            position: relative;
+            margin: 0 0.8rem;
+            cursor: pointer;
+        }
+
+        .cart-icon i {
+            font-size: 1.6rem;
+            color: white;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #e63946;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 7px;
+            font-size: 0.7rem;
+            border: 2px solid white;
+        }
+
+        #hamburger {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        #menu {
+            display: flex;
+            list-style: none;
+            gap: 1.6rem;
+            align-items: center;
+        }
+
+        #menu li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        #menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffd966;
+            transition: width 0.3s ease;
+        }
+
+        #menu li a:hover::after {
+            width: 100%;
+        }
+
+
+        /* Mobile Navigation */
+        @media screen and (max-width: 900px) {
+            .search-box {
+                display: none;
+            }
+
+            .cart-icon {
+                margin-right: auto;
+                order: 1;
+            }
+
+            #hamburger {
+                display: block;
+                order: 2;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+                padding: 80px 20px 30px;
+                transition: right 0.4s ease;
+                z-index: 1000;
+                border-left: 2px solid #ffd966;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            #menu {
+                flex-direction: column;
+                gap: 1.5rem;
+                width: 100%;
+                display: flex !important;
+            }
+
+            #menu li {
+                width: 100%;
+            }
+
+            #menu li a {
+                font-size: 1.2rem;
+                padding: 0.8rem 1rem;
+                width: 100%;
+                background: rgba(255,255,255,0.05);
+                border-radius: 10px;
+            }
+
+
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.7);
+                backdrop-filter: blur(5px);
+                z-index: 999;
+            }
+
+            .overlay.active {
+                display: block;
+            }
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(37,211,102,0.4);
+            border: 2px solid white;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            background: white;
+            color: #128C7E;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid #25D366;
+        }
+
+        .whatsapp-btn:hover .whatsapp-tooltip {
+            opacity: 1;
+            visibility: visible;
+            right: 80px;
+        }
+
+        /* Page Title */
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin: 2rem 0 0.5rem;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            left: 50%;
+            position: relative;
+            transform: translateX(-50%);
+        }
+
+        .page-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            max-width: 1200px;
+            margin: 2rem auto 4rem;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .hero-content {
+            flex: 1 1 400px;
+            animation: fadeInLeft 1s ease;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .hero-content h1 span {
+            color: #f7971e;
+            position: relative;
+        }
+
+        .hero-content h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: rgba(247,151,30,0.2);
+            z-index: -1;
+        }
+
+        .hero-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .hero-image {
+            flex: 1 1 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: fadeInRight 1s ease;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+            flex: 1 1 200px;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .stat-item i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: rgba(255,255,255,0.2);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .stat-item h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Story Section */
+        .story-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #f7971e, #ffd200);
+            border-radius: 3px;
+        }
+
+        .section-header p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .story-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .story-text {
+            flex: 1 1 400px;
+        }
+
+        .story-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .story-text p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-image {
+            flex: 1 1 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Timeline */
+        .timeline-section {
+            background: #fff;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: #f7971e;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-date {
+            width: 120px;
+            padding: 0.5rem 1rem;
+            background: #f7971e;
+            color: white;
+            text-align: center;
+            border-radius: 25px;
+            font-weight: 600;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .timeline-content {
+            width: calc(50% - 60px);
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .timeline-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 20px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(247,151,30,0.2);
+        }
+
+        .team-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-card:hover .team-image img {
+            transform: scale(1.1);
+        }
+
+        .team-info {
+            padding: 1.5rem;
+        }
+
+        .team-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+            color: #333;
+        }
+
+        .team-info p {
+            color: #f7971e;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .team-social a {
+            width: 35px;
+            height: 35px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .team-social a:hover {
+            background: #f7971e;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Values Section */
+        .values-section {
+            background: #fff;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .values-grid {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(247,151,30,0.1);
+        }
+
+        .value-card i {
+            font-size: 2.5rem;
+            color: #f7971e;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: white;
+            color: #f7971e;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            color: #ccc;
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+            border-top: 3px solid #ffd966;
+        }
+
+        .one {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .footer-box {
+            flex: 1 1 200px;
+        }
+
+        .footer-box h3 {
+            color: #ffd966;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-box a {
+            color: #bbb;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-box a:hover {
+            color: #ffd966;
+            transform: translateX(5px);
+        }
+
+        .footer-box a i {
+            margin-right: 8px;
+        }
+
+        .footer-box ul {
+            list-style: none;
+        }
+
+        .footer-social {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+        }
+
+        .footer-social a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #ffd966;
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .stat-item h2 {
+                font-size: 2.2rem;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-date {
+                left: 30px;
+                width: 100px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+            }
+            
+            .timeline-item {
+                flex-direction: row !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .stat-item {
+                flex: 1 1 100%;
+            }
+            
+            .whatsapp-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand" onclick="location.href='index.html'">RK Logix</div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <i class="fa-solid fa-magnifying-glass" onclick="searchProducts()"></i>
+        </div>
+        <div class="cart-icon" onclick="openCart()">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="cart-count" id="cartCount">0</span>
+        </div>
+        <i id="hamburger" class="fa-solid fa-bars"></i>
+        <nav id="nav">
+            <ul id="menu">
+                <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="mens.html"><i class="fa-solid fa-person"></i>MENS</a></li>
+                <li><a href="womens.html"><i class="fa-solid fa-person-half-dress"></i>WOMENS</a></li>
+                <li><a href="lookbook.html"><i class="fa-solid fa-images"></i>LOOK BOOK</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-phone"></i>Contact</a></li>
+                <li><a href="about.html"><i class="fa-solid fa-info-circle"></i>About</a></li>
+                <li><a href="login.html" id="authButton" class="auth-btn"><i class="fa-solid fa-right-to-bracket"></i>Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Page Title -->
+    <div class="page-title">ABOUT US</div>
+    <div class="page-subtitle">Discover the story behind Funky Teens</div>
+
+    <!-- Hero Section -->
+    <div class="about-hero">
+        <div class="hero-content">
+            <h1>We're on a mission to <span>transform</span> the way you shop</h1>
+            <p>Founded in 2020 by <strong>Raj Kumawat</strong>, Funky Teens has grown from a small startup to one of the most trusted online fashion destinations. We believe that style should be accessible to everyone, without compromising on quality or affordability.</p>
+            <p>Our curated collections feature the latest trends in men's and women's fashion, cosmetics, and accessories, all at prices that won't break the bank.</p>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1470&auto=format&fit=crop" alt="Fashion Team">
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <i class="fa-solid fa-users"></i>
+                <h2 class="counter" data-target="50000">50K+</h2>
+                <p>Happy Customers</p>
+            </div>
+            <div class="stat-item">
+                <i class="fa-solid fa-box"></i>
+                <h2 class="counter" data-target="10000">10K+</h2>
+                <p>Products Sold</p>
+            </div>
+            <div class="stat-item">
+                <i class="fa-solid fa-truck"></i>
+                <h2 class="counter" data-target="150">150+</h2>
+                <p>Cities Served</p>
+            </div>
+            <div class="stat-item">
+                <i class="fa-solid fa-star"></i>
+                <h2 class="counter" data-target="4.8">4.8</h2>
+                <p>Average Rating</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Story Section -->
+    <div class="story-section">
+        <div class="section-header">
+            <h2>Our Story</h2>
+            <p>How Funky Teens came to be and where we're headed</p>
+        </div>
+        <div class="story-content">
+            <div class="story-text">
+                <h3>From a small dream to a big reality</h3>
+                <p>It all started in 2020 when our founder, <strong>Raj Kumawat</strong>, noticed a gap in the market for trendy, affordable fashion for teens and young adults. With just ₹5000 and a passion for style, he started Funky Teens from his hostel room.</p>
+                <p>What began as a small Instagram page selling t-shirts has now grown into a full-fledged online store with over 500+ products across multiple categories. We've served more than 50,000 customers across 150+ cities in India.</p>
+                <p>Today, we're a team of 20+ passionate individuals working together to bring you the best in fashion and beauty.</p>
+                <p>Connect with our founder on <a href="https://www.linkedin.com/in/raj-kumawat-681b46378?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " target="_blank" style="color: #f7971e; text-decoration: none; font-weight: 600;"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></p>
+            </div>
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=1470&auto=format&fit=crop" alt="Our Story">
+            </div>
+        </div>
+    </div>
+
+    <!-- Timeline Section -->
+    <div class="timeline-section">
+        <div class="section-header">
+            <h2>Our Journey</h2>
+            <p>Key milestones in our growth</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2020</div>
+                <div class="timeline-content">
+                    <h3>The Beginning</h3>
+                    <p>Started as a small Instagram page with just 10 t-shirts. First order came from a friend!</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2021</div>
+                <div class="timeline-content">
+                    <h3>First Expansion</h3>
+                    <p>Added women's collection and expanded to 100+ products. Reached 10,000 customers.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2022</div>
+                <div class="timeline-content">
+                    <h3>Cosmetics Launch</h3>
+                    <p>Launched our cosmetics line and lookbook. Team grew to 10 members.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2023</div>
+                <div class="timeline-content">
+                    <h3>National Presence</h3>
+                    <p>Expanded to 150+ cities. Launched our mobile app and loyalty program.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2024</div>
+                <div class="timeline-content">
+                    <h3>New Horizons</h3>
+                    <p>Planning international shipping and new product categories. Stay tuned!</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2025</div>
+                <div class="timeline-content">
+                    <h3>Global Expansion</h3>
+                    <p>Launched international shipping to 20+ countries. Reached 1 lakh+ happy customers worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Values Section -->
+    <div class="values-section">
+        <div class="section-header">
+            <h2>Our Values</h2>
+            <p>What drives us every day</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <i class="fa-solid fa-heart"></i>
+                <h3>Customer First</h3>
+                <p>Our customers are at the heart of everything we do. We strive to provide the best shopping experience.</p>
+            </div>
+            <div class="value-card">
+                <i class="fa-solid fa-medal"></i>
+                <h3>Quality</h3>
+                <p>We never compromise on quality. Every product is carefully selected and tested.</p>
+            </div>
+            <div class="value-card">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+                <h3>Integrity</h3>
+                <p>We believe in honest business practices and transparent communication.</p>
+            </div>
+            <div class="value-card">
+                <i class="fa-solid fa-lightbulb"></i>
+                <h3>Innovation</h3>
+                <p>We're constantly evolving and bringing new ideas to the table.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="team-section">
+        <div class="section-header">
+            <h2>Meet Our Team</h2>
+            <p>The passionate people behind Funky Teens</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop" alt="Raj Kumawat">
+                </div>
+                <div class="team-info">
+                    <h3>Raj Kumawat</h3>
+                    <p>Founder & CEO</p>
+                    <div class="team-social">
+                        <a href="https://www.linkedin.com/in/rajkumawat" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" target="_blank" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=387&auto=format&fit=crop" alt="Priya Sharma">
+                </div>
+                <div class="team-info">
+                    <h3>Priya Sharma</h3>
+                    <p>Head of Design</p>
+                    <div class="team-social">
+                        <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fa-brands fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=387&auto=format&fit=crop" alt="Amit Patel">
+                </div>
+                <div class="team-info">
+                    <h3>Amit Patel</h3>
+                    <p>Operations Manager</p>
+                    <div class="team-social">
+                        <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=461&auto=format&fit=crop" alt="Neha Gupta">
+                </div>
+                <div class="team-info">
+                    <h3>Neha Gupta</h3>
+                    <p>Customer Success</p>
+                    <div class="team-social">
+                        <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to start shopping?</h2>
+            <p>Explore our latest collections and find your perfect style</p>
+            <a href="mens.html" class="cta-btn">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="one">
+            <div class="footer-box">
+                <h3><a href="about.html">About Us >></a></h3>
+                <p>Your one-stop destination for trendy fashion.</p>
+            </div>
+            <div class="footer-box">
+                <h3>Quick Links >></h3>
+                <ul>
+                    <li><a href="mens.html"><i class="fa-solid fa-person"></i> Mens</a></li>
+                    <li><a href="womens.html"><i class="fa-solid fa-person-half-dress"></i> Womens</a></li>
+                    <li><a href="lookbook.html"><i class="fa-solid fa-images"></i> Look Book</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>Help >></h3>
+                <ul>
+                    <li><a href="contact.html"><i class="fa-solid fa-phone"></i> Contact</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-circle-question"></i> About Us</a></li>
+                        <li><a href="checkout.html"><i class="fa-solid fa-bag-shopping"></i> Checkout</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>Contact >></h3>
+                <p><i class="fa-solid fa-phone"></i> 8764841243<br>
+                   <i class="fa-solid fa-envelope"></i> rajkumawatraz@gmail.com</p>
+                <p style="margin-top: 10px;">
+                    <a href="https://www.linkedin.com/in/rajkumawat" target="_blank" style="color: #ffd966;">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-social">
+            Follow: 
+            <a href="https://www.linkedin.com/in/rajkumawat" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a> | 
+            <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a> | 
+            <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a> | 
+            <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i> Twitter</a>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/918764841243?text=Hi!%20I%20have%20a%20question%20about%20Funky%20Teens" class="whatsapp-btn" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with us!</span>
+    </a>
+
+    <script>
+        // Cart functions
+        function openCart() {
+            alert('Cart functionality will be added soon!');
+        }
+
+        function searchProducts() {
+            const query = document.getElementById('searchInput').value;
+            if (query) {
+                location.href = `mens.html?search=${encodeURIComponent(query)}`;
+            }
+        }
+
+        // Mobile menu functions
+        function openMenu() {
+            document.getElementById('nav').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            document.getElementById('nav').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Counter Animation
+        function animateCounter() {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = parseFloat(counter.getAttribute('data-target'));
+                    const count = parseFloat(counter.innerText.replace(/[^0-9.]/g, ''));
+                    
+                    const inc = target / speed;
+                    
+                    if (count < target) {
+                        if (target === 4.8) {
+                            counter.innerText = (count + 0.1).toFixed(1) + '+';
+                        } else {
+                            counter.innerText = Math.ceil(count + inc) + '+';
+                        }
+                        setTimeout(updateCount, 10);
+                    } else {
+                        if (target === 4.8) {
+                            counter.innerText = target + '+';
+                        } else {
+                            counter.innerText = target + '+';
+                        }
+                    }
+                };
+                
+                updateCount();
+            });
+        }
+
+        // Intersection Observer for counters
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        observer.observe(document.querySelector('.stats-section'));
+
+        // Mobile menu event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const overlay = document.getElementById('overlay');
+
+            if (hamburger) hamburger.addEventListener('click', openMenu);
+            if (overlay) overlay.addEventListener('click', closeMenu);
+
+            document.querySelectorAll('#menu a').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // Search on enter
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchProducts();
+                }
+            });
+        });
+
+        // Window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 900) closeMenu();
+        });
+    </script>
+</body>
+</html> 

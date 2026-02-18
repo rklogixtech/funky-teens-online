@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funky Teens · Men's Complete Collection</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <style>
+        /* ========== RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #fcf8f0;
+            color: #1e1e1e;
+            overflow-x: hidden;
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* ========== HEADER STYLES (SAME AS INDEX) ========== */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+            color: white;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-bottom: 2px solid #ffd966;
+        }
+
+        .brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 350px;
+            margin: 0 1rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.7rem 2.5rem 0.7rem 1.2rem;
+            border-radius: 40px;
+            border: none;
+            background: #2a2a2a;
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #f7971e;
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #f5b342;
+            cursor: pointer;
+        }
+
+        .cart-icon {
+            position: relative;
+            margin: 0 0.8rem;
+            cursor: pointer;
+        }
+
+        .cart-icon i {
+            font-size: 1.6rem;
+            color: white;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #e63946;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 7px;
+            font-size: 0.7rem;
+            border: 2px solid white;
+        }
+
+        #hamburger {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        #menu {
+            display: flex;
+            list-style: none;
+            gap: 1.6rem;
+            align-items: center;
+        }
+
+        #menu li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        #menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffd966;
+            transition: width 0.3s ease;
+        }
+
+        #menu li a:hover::after {
+            width: 100%;
+        }
+
+
+        /* Mobile Navigation */
+        @media screen and (max-width: 900px) {
+            .search-box {
+                display: none;
+            }
+
+            .cart-icon {
+                margin-right: auto;
+                order: 1;
+            }
+
+            #hamburger {
+                display: block;
+                order: 2;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+                padding: 80px 20px 30px;
+                transition: right 0.4s ease;
+                z-index: 1000;
+                border-left: 2px solid #ffd966;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            #menu {
+                flex-direction: column;
+                gap: 1.5rem;
+                width: 100%;
+                display: flex !important;
+            }
+
+            #menu li {
+                width: 100%;
+            }
+
+            #menu li a {
+                font-size: 1.2rem;
+                padding: 0.8rem 1rem;
+                width: 100%;
+                background: rgba(255,255,255,0.05);
+                border-radius: 10px;
+            }
+
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.7);
+                backdrop-filter: blur(5px);
+                z-index: 999;
+            }
+
+            .overlay.active {
+                display: block;
+            }
+        }
+
+        /* ========== WHATSAPP BUTTON ========== */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(37,211,102,0.4);
+            border: 2px solid white;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            background: white;
+            color: #128C7E;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid #25D366;
+        }
+
+        .whatsapp-btn:hover .whatsapp-tooltip {
+            opacity: 1;
+            visibility: visible;
+            right: 80px;
+        }
+
+        /* ========== CART MODAL ========== */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: flex-end;
+        }
+
+        .cart-modal.active {
+            display: flex;
+        }
+
+        .cart-modal-content {
+            width: 450px;
+            max-width: 90%;
+            height: 100%;
+            background: #fff;
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+            animation: slideInRight 0.4s ease;
+        }
+
+        .cart-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 1rem;
+        }
+
+        .close-cart {
+            font-size: 2rem;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .cart-items {
+            min-height: 200px;
+            max-height: calc(100vh - 250px);
+            overflow-y: auto;
+            margin: 1.5rem 0;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 1rem;
+            position: relative;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-price {
+            color: #e63946;
+            font-weight: 700;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .cart-item-quantity button {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            background: #f8f8f8;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-item-quantity button:hover {
+            background: #f7971e;
+            color: white;
+        }
+
+        .remove-item {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #999;
+            cursor: pointer;
+        }
+
+        .cart-total {
+            text-align: right;
+            border-top: 2px solid #333;
+            padding-top: 1rem;
+        }
+
+        .cart-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .continue-shopping, .checkout-btn {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .continue-shopping {
+            background: #f0f0f0;
+        }
+
+        .checkout-btn {
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: white;
+        }
+
+        /* ========== PAGE TITLE ========== */
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin: 2rem 0 0.5rem;
+            background: linear-gradient(135deg, #2c3e50, #3498db, #2980b9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            left: 50%;
+            position: relative;
+            transform: translateX(-50%);
+        }
+
+        .page-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* ========== CATEGORY FILTER ========== */
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem auto;
+            max-width: 1300px;
+            padding: 0 20px;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 40px;
+            background: white;
+            color: #333;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-btn i {
+            color: #3498db;
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(52,152,219,0.3);
+            border: 2px solid #3498db;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+
+        .filter-btn.active i {
+            color: white;
+        }
+
+        /* ========== CATEGORY HEADER ========== */
+        .category-header {
+            max-width: 1300px;
+            margin: 3rem auto 1.5rem;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .category-header h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            border-left: 5px solid #f7971e;
+            padding-left: 15px;
+        }
+
+        .category-header i {
+            font-size: 2rem;
+            color: #f7971e;
+            animation: pulse 2s infinite;
+        }
+
+        /* ========== PRODUCTS FLEX ========== */
+        .products-section {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .products-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        /* ========== PRODUCT CARD ========== */
+        .product-card {
+            flex: 1 1 280px;
+            max-width: 320px;
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 40px rgba(52,152,219,0.3);
+            border-color: #3498db;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+        .product-wishlist {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-wishlist i {
+            color: #e74c3c;
+            font-size: 1.2rem;
+        }
+
+        .product-wishlist.active {
+            background: #e74c3c;
+        }
+
+        .product-wishlist.active i {
+            color: white;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .product-category {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: #f0f0f0;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.8rem;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-desc {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #e74c3c;
+        }
+
+        .original-price {
+            font-size: 0.9rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            color: #f1c40f;
+            font-size: 0.8rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(52,152,219,0.4);
+        }
+
+        .add-to-cart:hover i {
+            transform: rotate(360deg);
+        }
+
+        /* ========== BANNER ========== */
+        .sale-banner {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 3rem 2rem;
+            margin: 3rem auto;
+            max-width: 1300px;
+            border-radius: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            gap: 2rem;
+            border: 3px solid #f1c40f;
+        }
+
+        .banner-content {
+            flex: 1 1 300px;
+            text-align: center;
+        }
+
+        .banner-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .banner-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .banner-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #f1c40f;
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .banner-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(241,196,15,0.4);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            color: #ccc;
+            padding: 4rem 2rem 2rem;
+            margin-top: 5rem;
+            border-top: 3px solid #ffd966;
+        }
+
+        .one {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .footer-box {
+            flex: 1 1 200px;
+        }
+
+        .footer-box h3 {
+            color: #ffd966;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-box a {
+            color: #bbb;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-box a:hover {
+            color: #ffd966;
+            transform: translateX(5px);
+        }
+
+        .footer-box a i {
+            margin-right: 8px;
+        }
+
+        .footer-box ul {
+            list-style: none;
+        }
+
+        .footer-social {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+        }
+
+        .footer-social a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .footer-social a:hover {
+            color: #ffd966;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .category-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .sale-banner h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .filter-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .product-card {
+                max-width: 100%;
+            }
+            
+            .whatsapp-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="brand">RK Logix</div>
+        <div class="search-box">
+            <input type="text" placeholder="Search men's fashion...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="cart-icon">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="cart-count">0</span>
+        </div>
+        <i id="hamburger" class="fa-solid fa-bars"></i>
+        <nav id="nav">
+            <ul id="menu">
+                <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="mens.html"><i class="fa-solid fa-person"></i>MENS</a></li>
+                <li><a href="womens.html"><i class="fa-solid fa-person-half-dress"></i>WOMENS</a></li>
+                <li><a href="lookbook.html"><i class="fa-solid fa-images"></i>LOOK BOOK</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-phone"></i>Contact</a></li>
+                <li><a href="about.html"><i class="fa-solid fa-info-circle"></i>About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="globalCartModal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h2><i class="fa-solid fa-bag-shopping"></i> Your Bag</h2>
+                <i class="fa-solid fa-xmark close-cart" id="closeCartModal"></i>
+            </div>
+            <div class="cart-items" id="cartItemsContainer">
+                <div style="text-align:center; padding:3rem;">
+                    <i class="fa-solid fa-bag-shopping fa-4x" style="color:#ccc;"></i>
+                    <p>Your cart is empty</p>
+                </div>
+            </div>
+            <div class="cart-total">
+                <h3>Total: ₹<span class="total-amount" id="cartTotalAmount">0.00</span></h3>
+            </div>
+            <div class="cart-actions">
+                <button class="continue-shopping" id="continueShoppingBtn">Continue</button>
+                <button class="checkout-btn" id="checkoutBtn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Title -->
+    <div class="page-title">MEN'S COLLECTION</div>
+    <div class="page-subtitle">Complete Menswear · Clothing, Footwear, Cosmetics & Accessories</div>
+
+    <!-- Category Filter -->
+    <div class="category-filter">
+        <button class="filter-btn active"><i class="fa-solid fa-tshirt"></i> All</button>
+        <button class="filter-btn"><i class="fa-solid fa-shirt"></i> Shirts</button>
+        <button class="filter-btn"><i class="fa-solid fa-vest"></i> T-Shirts</button>
+        <button class="filter-btn"><i class="fa-solid fa-clipboard-list"></i> Jeans</button>
+        <button class="filter-btn"><i class="fa-solid fa-clock"></i> Watches</button>
+        <button class="filter-btn"><i class="fa-solid fa-shoe-prints"></i> Shoes</button>
+        <button class="filter-btn"><i class="fa-solid fa-hat-cowboy"></i> Accessories</button>
+        <button class="filter-btn"><i class="fa-solid fa-spray-can"></i> Cosmetics</button>
+    </div>
+
+    <!-- ========== SHIRTS SECTION ========== -->
+    <div class="category-header">
+        <i class="fa-solid fa-shirt"></i>
+        <h2>Formal & Casual Shirts</h2>
+        <i class="fa-solid fa-shirt"></i>
+    </div>
+
+    <div class="products-section">
+        <div class="products-flex">
+            <!-- Shirt 1 - Formal Blue -->
+            <div class="product-card" data-id="m1" data-name="Classic Blue Formal Shirt" data-price="1899" data-image="https://images.unsplash.com/photo-1598033121393-5c6ddc3b6c8b?q=80&w=580&auto=format&fit=crop">
+                <span class="product-badge">Bestseller</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://www.thedrop.co/content/images/thumbs/0000483_double-breasted-dark-navy-blue-two-piece-suit_550.png" alt="Formal Shirt" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Shirts</span>
+                    <h3 class="product-title">Classic Blue Formal</h3>
+                    <p class="product-desc">Premium cotton, wrinkle-free, slim fit</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,899 <span class="original-price">₹2,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (245)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Shirt 2 - White Formal -->
+            <div class="product-card" data-id="m2" data-name="White Formal Shirt" data-price="1699" data-image="https://images.unsplash.com/photo-1602810316693-3667c854239a?q=80&w=464&auto=format&fit=crop">
+                <span class="product-badge">Office Wear</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1602810316693-3667c854239a?q=80&w=464&auto=format&fit=crop" alt="White Shirt" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Shirts</span>
+                    <h3 class="product-title">White Formal</h3>
+                    <p class="product-desc">Pure cotton, easy iron, regular fit</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,699 <span class="original-price">₹2,499</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (312)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Shirt 3 - Casual Check -->
+            <div class="product-card" data-id="m3" data-name="Checked Casual Shirt" data-price="1499" data-image="https://images.unsplash.com/photo-1589310243389-96a5483213a8?q=80&w=387&auto=format&fit=crop">
+                <span class="product-badge">Trending</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1589310243389-96a5483213a8?q=80&w=387&auto=format&fit=crop" alt="Check Shirt" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Shirts</span>
+                    <h3 class="product-title">Checked Casual</h3>
+                    <p class="product-desc">Cotton blend, relaxed fit, pocket</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,499 <span class="original-price">₹2,199</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (178)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Shirt 4 - Linen -->
+            <div class="product-card" data-id="m4" data-name="Linen Casual Shirt" data-price="2099" data-image="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=388&auto=format&fit=crop">
+                <span class="product-badge">Summer</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=388&auto=format&fit=crop" alt="Linen Shirt" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Shirts</span>
+                    <h3 class="product-title">Linen Casual</h3>
+                    <p class="product-desc">100% linen, breathable, half sleeves</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹2,099 <span class="original-price">₹2,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (98)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== T-SHIRTS SECTION ========== -->
+    <div class="category-header">
+        <i class="fa-solid fa-vest"></i>
+        <h2>T-Shirts · Printed & Plain</h2>
+        <i class="fa-solid fa-vest"></i>
+    </div>
+
+    <div class="products-section">
+        <div class="products-flex">
+            <!-- T-Shirt 1 - Graphic -->
+            <div class="product-card" data-id="m5" data-name="Graphic Printed T-Shirt" data-price="999" data-image="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=464&auto=format&fit=crop">
+                <span class="product-badge">New</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=464&auto=format&fit=crop" alt="Graphic Tee" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">T-Shirts</span>
+                    <h3 class="product-title">Graphic Print Tee</h3>
+                    <p class="product-desc">100% cotton, bold print, regular fit</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹999 <span class="original-price">₹1,499</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (245)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- T-Shirt 2 - Plain White -->
+            <div class="product-card" data-id="m6" data-name="Plain White T-Shirt" data-price="699" data-image="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=880&auto=format&fit=crop">
+                <span class="product-badge">Essential</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=880&auto=format&fit=crop" alt="White Tee" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">T-Shirts</span>
+                    <h3 class="product-title">Plain White Tee</h3>
+                    <p class="product-desc">Soft cotton, premium quality, pack of 2</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹699 <span class="original-price">₹999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (567)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- T-Shirt 3 - Black -->
+            <div class="product-card" data-id="m7" data-name="Plain Black T-Shirt" data-price="699" data-image="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=415&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=415&auto=format&fit=crop" alt="Black Tee" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">T-Shirts</span>
+                    <h3 class="product-title">Plain Black Tee</h3>
+                    <p class="product-desc">Premium cotton, pack of 2, regular fit</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹699 <span class="original-price">₹999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (432)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- T-Shirt 4 - Polo -->
+            <div class="product-card" data-id="m8" data-name="Polo T-Shirt" data-price="1299" data-image="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?q=80&w=871&auto=format&fit=crop">
+                <span class="product-badge">Premium</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?q=80&w=871&auto=format&fit=crop" alt="Polo Shirt" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">T-Shirts</span>
+                    <h3 class="product-title">Polo T-Shirt</h3>
+                    <p class="product-desc">Cotton pique, embroidered logo</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,299 <span class="original-price">₹1,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (156)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== JEANS & PANTS SECTION ========== -->
+    <div class="category-header">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <h2>Jeans & Pants · All Styles</h2>
+        <i class="fa-solid fa-clipboard-list"></i>
+    </div>
+
+    <div class="products-section">
+        <div class="products-flex">
+            <!-- Jeans 1 - Slim Fit -->
+            <div class="product-card" data-id="m9" data-name="Slim Fit Jeans" data-price="2299" data-image="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=387&auto=format&fit=crop">
+                <span class="product-badge">-30%</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=387&auto=format&fit=crop" alt="Slim Jeans" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Jeans</span>
+                    <h3 class="product-title">Slim Fit Jeans</h3>
+                    <p class="product-desc">Stretch denim, dark wash, 5 pockets</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹2,299 <span class="original-price">₹3,299</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (312)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Jeans 2 - Regular Fit -->
+            <div class="product-card" data-id="m10" data-name="Regular Fit Jeans" data-price="1999" data-image="https://images.unsplash.com/photo-1475178626620-a4d074967452?q=80&w=452&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1475178626620-a4d074967452?q=80&w=452&auto=format&fit=crop" alt="Regular Jeans" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Jeans</span>
+                    <h3 class="product-title">Regular Fit Jeans</h3>
+                    <p class="product-desc">Classic blue, straight cut, comfort fit</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,999 <span class="original-price">₹2,799</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (278)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Jeans 3 - Baggy -->
+            <div class="product-card" data-id="m11" data-name="Baggy Fit Jeans" data-price="2499" data-image="https://images.unsplash.com/photo-1582552938357-32b906df40cb?q=80&w=735&auto=format&fit=crop">
+                <span class="product-badge">Trending</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1582552938357-32b906df40cb?q=80&w=735&auto=format&fit=crop" alt="Baggy Jeans" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Jeans</span>
+                    <h3 class="product-title">Baggy Fit Jeans</h3>
+                    <p class="product-desc">Loose fit, vintage wash, stylish</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹2,499 <span class="original-price">₹3,499</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (145)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Chinos -->
+            <div class="product-card" data-id="m12" data-name="Chino Pants" data-price="1899" data-image="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=697&auto=format&fit=crop">
+                <span class="product-badge">New</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=697&auto=format&fit=crop" alt="Chinos" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Pants</span>
+                    <h3 class="product-title">Chino Pants</h3>
+                    <p class="product-desc">Cotton twill, slim fit, beige color</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,899 <span class="original-price">₹2,599</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (167)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== SHOES SECTION ========== -->
+    <div class="category-header">
+        <i class="fa-solid fa-shoe-prints"></i>
+        <h2>Footwear · Sports & Formal</h2>
+        <i class="fa-solid fa-shoe-prints"></i>
+    </div>
+
+    <div class="products-section">
+        <div class="products-flex">
+            <!-- Shoes 1 - Sneakers -->
+            <div class="product-card" data-id="m13" data-name="Sports Sneakers" data-price="3999" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=870&auto=format&fit=crop">
+                <span class="product-badge">Bestseller</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=870&auto=format&fit=crop" alt="Sneakers" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Shoes</span>
+                    <h3 class="product-title">Sports Sneakers</h3>
+                    <p class="product-desc">Breathable mesh, cushioned sole</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹3,999 <span class="original-price">₹5,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (234)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Shoes 2 - Formal -->
+            <div class="product-card" data-id="m14" data-name="Leather Formal Shoes" data-price="4999" data-image="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=880&auto=format&fit=crop">
+                <span class="product-badge">Premium</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=880&auto=format&fit=crop" alt="Formal Shoes" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Shoes</span>
+                    <h3 class="product-title">Leather Formal</h3>
+                    <p class="product-desc">Genuine leather, cushioned insole</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹4,999 <span class="original-price">₹7,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (89)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Shoes 3 - Casual -->
+            <div class="product-card" data-id="m15" data-name="Casual Loafers" data-price="2999" data-image="https://images.unsplash.com/photo-1617606002779-51c79f19d1b9?q=80&w=870&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://5.imimg.com/data5/SELLER/Default/2023/5/304612682/DK/MH/OH/1938042/-mg-9420-1000x1000.JPG" alt="Loafers" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Shoes</span>
+                    <h3 class="product-title">Casual Loafers</h3>
+                    <p class="product-desc">Synthetic leather, slip-on, comfort</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹2,999 <span class="original-price">₹4,499</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (156)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Shoes 4 - Boots -->
+            <div class="product-card" data-id="m16" data-name="Ankle Boots" data-price="5999" data-image="https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=735&auto=format&fit=crop">
+                <span class="product-badge">Winter</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=735&auto=format&fit=crop" alt="Boots" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Shoes</span>
+                    <h3 class="product-title">Ankle Boots</h3>
+                    <p class="product-desc">Leather, lace-up, rugged sole</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹5,999 <span class="original-price">₹8,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (67)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ACCESSORIES SECTION ========== -->
+    <div class="category-header">
+        <i class="fa-solid fa-clock"></i>
+        <h2>Watches & Accessories</h2>
+        <i class="fa-solid fa-hat-cowboy"></i>
+    </div>
+
+    <div class="products-section">
+        <div class="products-flex">
+            <!-- Watch 1 -->
+            <div class="product-card" data-id="m17" data-name="Analog Watch" data-price="5499" data-image="https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=799&auto=format&fit=crop">
+                <span class="product-badge">Luxury</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=799&auto=format&fit=crop" alt="Watch" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Watches</span>
+                    <h3 class="product-title">Analog Watch</h3>
+                    <p class="product-desc">Stainless steel, leather strap</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹5,499 <span class="original-price">₹7,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (89)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Watch 2 - Sport -->
+            <div class="product-card" data-id="m18" data-name="Sports Watch" data-price="3999" data-image="https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=688&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=688&auto=format&fit=crop" alt="Sports Watch" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Watches</span>
+                    <h3 class="product-title">Sports Watch</h3>
+                    <p class="product-desc">Digital, water resistant, stopwatch</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹3,999 <span class="original-price">₹5,499</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (145)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Cap -->
+            <div class="product-card" data-id="m19" data-name="Baseball Cap" data-price="799" data-image="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=872&auto=format&fit=crop">
+                <span class="product-badge">Accessory</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=872&auto=format&fit=crop" alt="Cap" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Accessories</span>
+                    <h3 class="product-title">Baseball Cap</h3>
+                    <p class="product-desc">Cotton twill, adjustable strap</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹799 <span class="original-price">₹1,299</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (112)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Sunglasses -->
+            <div class="product-card" data-id="m20" data-name="Aviator Sunglasses" data-price="1899" data-image="https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=880&auto=format&fit=crop">
+                <span class="product-badge">Trending</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=880&auto=format&fit=crop" alt="Sunglasses" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Accessories</span>
+                    <h3 class="product-title">Aviator Sunglasses</h3>
+                    <p class="product-desc">UV protection, metal frame</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,899 <span class="original-price">₹3,499</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (94)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Wallet -->
+            <div class="product-card" data-id="m21" data-name="Leather Wallet" data-price="1299" data-image="https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=987&auto=format&fit=crop">
+                <span class="product-badge">Gift</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=987&auto=format&fit=crop" alt="Wallet" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Accessories</span>
+                    <h3 class="product-title">Leather Wallet</h3>
+                    <p class="product-desc">Genuine leather, RFID block</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,299 <span class="original-price">₹2,299</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (156)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Belt -->
+            <div class="product-card" data-id="m22" data-name="Leather Belt" data-price="999" data-image="https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=365&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=365&auto=format&fit=crop" alt="Belt" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Accessories</span>
+                    <h3 class="product-title">Leather Belt</h3>
+                    <p class="product-desc">Genuine leather, adjustable</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹999 <span class="original-price">₹1,499</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (78)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== MEN'S COSMETICS SECTION ========== -->
+    <div class="category-header">
+        <i class="fa-solid fa-spray-can"></i>
+        <h2>Men's Grooming & Cosmetics</h2>
+        <i class="fa-solid fa-spray-can"></i>
+    </div>
+
+    <div class="products-section">
+        <div class="products-flex">
+            <!-- Perfume -->
+            <div class="product-card" data-id="m23" data-name="Men's Perfume" data-price="1299" data-image="https://images.unsplash.com/photo-1621607512022-6aecc4fed814?q=80&w=580&auto=format&fit=crop">
+                <span class="product-badge">Bestseller</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1621607512022-6aecc4fed814?q=80&w=580&auto=format&fit=crop" alt="Perfume" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Cosmetics</span>
+                    <h3 class="product-title">Urban Cologne</h3>
+                    <p class="product-desc">Woody & fresh, long lasting</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,299 <span class="original-price">₹2,299</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (234)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Beard Oil -->
+            <div class="product-card" data-id="m24" data-name="Beard Oil" data-price="649" data-image="https://images.unsplash.com/photo-1631730311655-b38d6f3e5b98?q=80&w=580&auto=format&fit=crop">
+                <span class="product-badge">New</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://m.media-amazon.com/images/I/81DycYsQi0L.jpg" alt="Beard Oil" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Cosmetics</span>
+                    <h3 class="product-title">Beard Oil</h3>
+                    <p class="product-desc">Argan & tea tree, 50ml</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹649 <span class="original-price">₹999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (145)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Face Wash -->
+            <div class="product-card" data-id="m25" data-name="Face Wash" data-price="399" data-image="https://images.unsplash.com/photo-1556229010-aa3f7ff66b24?q=80&w=387&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1556229010-aa3f7ff66b24?q=80&w=387&auto=format&fit=crop" alt="Face Wash" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Cosmetics</span>
+                    <h3 class="product-title">Face Wash</h3>
+                    <p class="product-desc">Charcoal, deep cleansing</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹399 <span class="original-price">₹599</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (89)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Hair Gel -->
+            <div class="product-card" data-id="m26" data-name="Hair Gel" data-price="299" data-image="https://images.unsplash.com/photo-1625813506330-2fdbe25c2727?q=80&w=464&auto=format&fit=crop">
+                <span class="product-badge">Hot</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1548173798-dove-1548173776.jpg?crop=1xw:1xh;center,top&resize=980:*" alt="Hair Gel" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category">Cosmetics</span>
+                    <h3 class="product-title">Hair Gel</h3>
+                    <p class="product-desc">Strong hold, non-sticky</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹299 <span class="original-price">₹499</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (67)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sale Banner -->
+    <div class="sale-banner">
+        <div class="banner-content">
+            <h2>🔥 MEN'S SUMMER SALE</h2>
+            <p>Get up to 50% off on selected items</p>
+            <a href="#" class="banner-btn">SHOP NOW</a>
+        </div>
+        <div class="banner-image">
+            <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=464&auto=format&fit=crop" alt="Summer Sale" style="width: 200px; border-radius: 30px; border: 3px solid white;">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="one">
+            <div class="footer-box">
+                <h3><a href="about.html">About Us >></a></h3>
+                <p>Your one-stop destination for trendy fashion.</p>
+            </div>
+            <div class="footer-box">
+                <h3>Quick Links >></h3>
+                <ul>
+                    <li><a href="mens.html"><i class="fa-solid fa-person"></i> Mens</a></li>
+                    <li><a href="womens.html"><i class="fa-solid fa-person-half-dress"></i> Womens</a></li>
+                    <li><a href="lookbook.html"><i class="fa-solid fa-images"></i> Look Book</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>Help >></h3>
+                <ul>
+                    <li><a href="contact.html"><i class="fa-solid fa-phone"></i> Contact Us</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-person-circle-question"></i>About Us</a></li>
+                   <li><a href="checkout.html"><i class="fa-solid fa-bag-shopping"></i> Checkout</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>Contact >></h3>
+                <p><i class="fa-solid fa-phone"></i> 8764841243<br>
+                   <i class="fa-solid fa-envelope"></i>RkLogixTech@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-social">
+            Follow: <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a> | <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a> | <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/918764841243?text=Hi!%20I%20have%20a%20question%20about%20Men's%20Collection" class="whatsapp-btn" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with us!</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu
+            const hamburger = document.getElementById('hamburger');
+            const nav = document.getElementById('nav');
+            const overlay = document.getElementById('overlay');
+
+            function openMenu() {
+                nav.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            if (hamburger) hamburger.addEventListener('click', openMenu);
+            if (overlay) overlay.addEventListener('click', closeMenu);
+
+            document.querySelectorAll('#menu a').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // Wishlist
+            document.querySelectorAll('.product-wishlist').forEach(wishlist => {
+                wishlist.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    if (this.classList.contains('active')) {
+                        icon.classList.remove('fa-regular');
+                        icon.classList.add('fa-solid');
+                    } else {
+                        icon.classList.remove('fa-solid');
+                        icon.classList.add('fa-regular');
+                    }
+                });
+            });
+
+            // Filter buttons
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    // Filter logic can be added here
+                });
+            });
+
+            // Window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 900) closeMenu();
+            });
+        });
+    </script>
+</body>
+</html>

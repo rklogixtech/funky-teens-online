@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funky Teens · Women's Complete Collection</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <style>
+        /* ========== RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #fcf8f0;
+            color: #1e1e1e;
+            overflow-x: hidden;
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* ========== HEADER STYLES ========== */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+            color: white;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-bottom: 2px solid #ffd966;
+        }
+
+        .brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 350px;
+            margin: 0 1rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.7rem 2.5rem 0.7rem 1.2rem;
+            border-radius: 40px;
+            border: none;
+            background: #2a2a2a;
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #f7971e;
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #f5b342;
+            cursor: pointer;
+        }
+
+        .cart-icon {
+            position: relative;
+            margin: 0 0.8rem;
+            cursor: pointer;
+        }
+
+        .cart-icon i {
+            font-size: 1.6rem;
+            color: white;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #e63946;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 7px;
+            font-size: 0.7rem;
+            border: 2px solid white;
+        }
+
+        #hamburger {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        #menu {
+            display: flex;
+            list-style: none;
+            gap: 1.6rem;
+            align-items: center;
+        }
+
+        #menu li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        #menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffd966;
+            transition: width 0.3s ease;
+        }
+
+        #menu li a:hover::after {
+            width: 100%;
+        }
+
+
+        /* Mobile Navigation */
+        @media screen and (max-width: 900px) {
+            .search-box {
+                display: none;
+            }
+
+            .cart-icon {
+                margin-right: auto;
+                order: 1;
+            }
+
+            #hamburger {
+                display: block;
+                order: 2;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+                padding: 80px 20px 30px;
+                transition: right 0.4s ease;
+                z-index: 1000;
+                border-left: 2px solid #ffd966;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            #menu {
+                flex-direction: column;
+                gap: 1.5rem;
+                width: 100%;
+                display: flex !important;
+            }
+
+            #menu li {
+                width: 100%;
+            }
+
+            #menu li a {
+                font-size: 1.2rem;
+                padding: 0.8rem 1rem;
+                width: 100%;
+                background: rgba(255,255,255,0.05);
+                border-radius: 10px;
+            }
+
+
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.7);
+                backdrop-filter: blur(5px);
+                z-index: 999;
+            }
+
+            .overlay.active {
+                display: block;
+            }
+        }
+
+        /* ========== WHATSAPP BUTTON ========== */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(37,211,102,0.4);
+            border: 2px solid white;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            background: white;
+            color: #128C7E;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid #25D366;
+        }
+
+        .whatsapp-btn:hover .whatsapp-tooltip {
+            opacity: 1;
+            visibility: visible;
+            right: 80px;
+        }
+
+        /* ========== CART MODAL ========== */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: flex-end;
+        }
+
+        .cart-modal.active {
+            display: flex;
+        }
+
+        .cart-modal-content {
+            width: 450px;
+            max-width: 90%;
+            height: 100%;
+            background: #fff;
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+            animation: slideInRight 0.4s ease;
+        }
+
+        .cart-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 1rem;
+        }
+
+        .close-cart {
+            font-size: 2rem;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .cart-items {
+            min-height: 200px;
+            max-height: calc(100vh - 250px);
+            overflow-y: auto;
+            margin: 1.5rem 0;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 1rem;
+            position: relative;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-price {
+            color: #e63946;
+            font-weight: 700;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .cart-item-quantity button {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            background: #f8f8f8;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-item-quantity button:hover {
+            background: #f7971e;
+            color: white;
+        }
+
+        .remove-item {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #999;
+            cursor: pointer;
+        }
+
+        .cart-total {
+            text-align: right;
+            border-top: 2px solid #333;
+            padding-top: 1rem;
+        }
+
+        .cart-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .continue-shopping, .checkout-btn {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .continue-shopping {
+            background: #f0f0f0;
+        }
+
+        .checkout-btn {
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: white;
+        }
+
+        /* ========== PAGE TITLE ========== */
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin: 2rem 0 0.5rem;
+            background: linear-gradient(135deg, #c44569, #e84393, #fd79a8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            left: 50%;
+            position: relative;
+            transform: translateX(-50%);
+        }
+
+        .page-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* ========== CATEGORY FILTER ========== */
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem auto;
+            max-width: 1300px;
+            padding: 0 20px;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 40px;
+            background: white;
+            color: #333;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-btn i {
+            color: #e84393;
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(232,67,147,0.3);
+            border: 2px solid #e84393;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #e84393, #c44569);
+            color: white;
+        }
+
+        .filter-btn.active i {
+            color: white;
+        }
+
+        /* ========== PRODUCTS GRID ========== */
+        .products-section {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .products-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        /* ========== PRODUCT CARD ========== */
+        .product-card {
+            flex: 1 1 280px;
+            max-width: 320px;
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            display: none;
+        }
+
+        .product-card.visible {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 40px rgba(232,67,147,0.3);
+            border-color: #e84393;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, #e84393, #c44569);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+        .product-wishlist {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-wishlist i {
+            color: #e84393;
+            font-size: 1.2rem;
+        }
+
+        .product-wishlist.active {
+            background: #e84393;
+        }
+
+        .product-wishlist.active i {
+            color: white;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .product-category-tag {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: #f0f0f0;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.8rem;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-desc {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #e84393;
+        }
+
+        .original-price {
+            font-size: 0.9rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            color: #f1c40f;
+            font-size: 0.8rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            background: linear-gradient(135deg, #e84393, #c44569);
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(232,67,147,0.4);
+        }
+
+        .add-to-cart:hover i {
+            transform: rotate(360deg);
+        }
+
+        /* Category data attributes */
+        .product-card[data-category="kurti"],
+        .product-card[data-category="top"],
+        .product-card[data-category="jeans"],
+        .product-card[data-category="saree"],
+        .product-card[data-category="shoe"],
+        .product-card[data-category="bag"],
+        .product-card[data-category="cosmetic"] {
+            /* Base styles */
+        }
+
+        /* ========== BANNER ========== */
+        .sale-banner {
+            background: linear-gradient(135deg, #c44569, #e84393, #fd79a8);
+            color: white;
+            padding: 3rem 2rem;
+            margin: 3rem auto;
+            max-width: 1300px;
+            border-radius: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            gap: 2rem;
+            border: 3px solid #f1c40f;
+        }
+
+        .banner-content {
+            flex: 1 1 300px;
+            text-align: center;
+        }
+
+        .banner-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .banner-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .banner-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #f1c40f;
+            color: #c44569;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .banner-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(241,196,15,0.4);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            color: #ccc;
+            padding: 4rem 2rem 2rem;
+            margin-top: 5rem;
+            border-top: 3px solid #ffd966;
+        }
+
+        .one {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .footer-box {
+            flex: 1 1 200px;
+        }
+
+        .footer-box h3 {
+            color: #ffd966;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-box a {
+            color: #bbb;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-box a:hover {
+            color: #ffd966;
+            transform: translateX(5px);
+        }
+
+        .footer-box a i {
+            margin-right: 8px;
+        }
+
+        .footer-box ul {
+            list-style: none;
+        }
+
+        .footer-social {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+        }
+
+        .footer-social a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .footer-social a:hover {
+            color: #ffd966;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .sale-banner h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .filter-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .product-card {
+                max-width: 100%;
+            }
+            
+            .whatsapp-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="brand">RK Logix</div>
+        <div class="search-box">
+            <input type="text" placeholder="Search women's fashion...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="cart-icon">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="cart-count">0</span>
+        </div>
+        <i id="hamburger" class="fa-solid fa-bars"></i>
+        <nav id="nav">
+            <ul id="menu">
+                <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="mens.html"><i class="fa-solid fa-person"></i>MENS</a></li>
+                <li><a href="womens.html"><i class="fa-solid fa-person-half-dress"></i>WOMENS</a></li>
+                <li><a href="lookbook.html"><i class="fa-solid fa-images"></i>LOOK BOOK</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-phone"></i>Contact</a></li>
+                <li><a href="about.html"><i class="fa-solid fa-info-circle"></i>About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="globalCartModal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h2><i class="fa-solid fa-bag-shopping"></i> Your Bag</h2>
+                <i class="fa-solid fa-xmark close-cart" id="closeCartModal"></i>
+            </div>
+            <div class="cart-items" id="cartItemsContainer">
+                <div style="text-align:center; padding:3rem;">
+                    <i class="fa-solid fa-bag-shopping fa-4x" style="color:#ccc;"></i>
+                    <p>Your cart is empty</p>
+                </div>
+            </div>
+            <div class="cart-total">
+                <h3>Total: ₹<span class="total-amount" id="cartTotalAmount">0.00</span></h3>
+            </div>
+            <div class="cart-actions">
+                <button class="continue-shopping" id="continueShoppingBtn">Continue</button>
+                <button class="checkout-btn" id="checkoutBtn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Title -->
+    <div class="page-title">WOMEN'S COLLECTION</div>
+    <div class="page-subtitle">56 Products · 8 in Each Category · Click to Filter</div>
+
+    <!-- Category Filter -->
+    <div class="category-filter">
+        <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-tshirt"></i> All (56)</button>
+        <button class="filter-btn" data-filter="kurti"><i class="fa-solid fa-shirt"></i> Kurtis (8)</button>
+        <button class="filter-btn" data-filter="top"><i class="fa-solid fa-vest"></i> Tops & Tees (8)</button>
+        <button class="filter-btn" data-filter="jeans"><i class="fa-solid fa-clipboard-list"></i> Jeans (8)</button>
+        <button class="filter-btn" data-filter="saree"><i class="fa-solid fa-person-dress"></i> Sarees (8)</button>
+        <button class="filter-btn" data-filter="shoe"><i class="fa-solid fa-shoe-prints"></i> Footwear (8)</button>
+        <button class="filter-btn" data-filter="bag"><i class="fa-solid fa-bag-shopping"></i> Handbags (8)</button>
+        <button class="filter-btn" data-filter="cosmetic"><i class="fa-solid fa-spray-can"></i> Cosmetics (8)</button>
+    </div>
+
+    <!-- Products Container -->
+    <div class="products-section">
+        <div class="products-flex" id="productsContainer">
+            <!-- ========== KURTIS (8) ========== -->
+            <!-- Kurti 1 -->
+            <div class="product-card visible" data-category="kurti" data-id="w1" data-name="Cotton Printed Kurti" data-price="1299" data-image="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=774&auto=format&fit=crop">
+                <span class="product-badge">Bestseller</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=774&auto=format&fit=crop" alt="Cotton Kurti" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Kurtis</span>
+                    <h3 class="product-title">Cotton Printed Kurti</h3>
+                    <p class="product-desc">Pure cotton, block print, regular fit</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,299 <span class="original-price">₹1,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (234)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Kurti 2 -->
+            <div class="product-card visible" data-category="kurti" data-id="w2" data-name="Anarkali Kurti" data-price="1899" data-image="https://images.unsplash.com/photo-1618354691551-44de113f0164?q=80&w=715&auto=format&fit=crop">
+                <span class="product-badge">Festival</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1618354691551-44de113f0164?q=80&w=715&auto=format&fit=crop" alt="Anarkali" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Kurtis</span>
+                    <h3 class="product-title">Anarkali Kurti</h3>
+                    <p class="product-desc">Georgette, floor length, embroidered</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,899 <span class="original-price">₹2,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (178)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Kurti 3 -->
+            <div class="product-card visible" data-category="kurti" data-id="w3" data-name="Straight Cut Kurti" data-price="999" data-image="https://images.unsplash.com/photo-1624206112918-c1401e9e0b8d?q=80&w=687&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://snehalcreation.co.in/backend/uploads/product_images/thumb_8_121544152690-1544152690-MM-188_CLOSE.jpg" alt="Straight Kurti" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Kurtis</span>
+                    <h3 class="product-title">Straight Cut Kurti</h3>
+                    <p class="product-desc">Rayon, solid colors, daily wear</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹999 <span class="original-price">₹1,599</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (312)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Kurti 4 -->
+            <div class="product-card visible" data-category="kurti" data-id="w4" data-name="A-Line Kurti" data-price="1499" data-image="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=783&auto=format&fit=crop">
+                <span class="product-badge">Trending</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=783&auto=format&fit=crop" alt="A-Line Kurti" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Kurtis</span>
+                    <h3 class="product-title">A-Line Kurti</h3>
+                    <p class="product-desc">Cotton, printed, flared</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,499 <span class="original-price">₹2,299</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (156)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Kurti 5 -->
+            <div class="product-card visible" data-category="kurti" data-id="w5" data-name="Plus Size Kurti" data-price="1399" data-image="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=774&auto=format&fit=crop">
+                <span class="product-badge">Plus Size</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=774&auto=format&fit=crop" alt="Plus Kurti" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Kurtis</span>
+                    <h3 class="product-title">Plus Size Kurti</h3>
+                    <p class="product-desc">Comfort fit, soft fabric</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,399 <span class="original-price">₹2,199</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (98)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Kurti 6 -->
+            <div class="product-card visible" data-category="kurti" data-id="w6" data-name="Cotton Silk Kurti" data-price="2199" data-image="https://images.unsplash.com/photo-1618354691551-44de113f0164?q=80&w=715&auto=format&fit=crop">
+                <span class="product-badge">Premium</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1618354691551-44de113f0164?q=80&w=715&auto=format&fit=crop" alt="Silk Kurti" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Kurtis</span>
+                    <h3 class="product-title">Cotton Silk Kurti</h3>
+                    <p class="product-desc">Silk blend, festive wear</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹2,199 <span class="original-price">₹3,499</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (67)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Kurti 7 -->
+            <div class="product-card visible" data-category="kurti" data-id="w7" data-name="Short Kurti" data-price="899" data-image="https://images.unsplash.com/photo-1624206112918-c1401e9e0b8d?q=80&w=687&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://popinfash.com/content/images/2023/09/zoom_0-1667558314-1.webp" alt="Short Kurti" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Kurtis</span>
+                    <h3 class="product-title">Short Kurti</h3>
+                    <p class="product-desc">Casual, knee length</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹899 <span class="original-price">₹1,399</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (145)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Kurti 8 -->
+            <div class="product-card visible" data-category="kurti" data-id="w8" data-name="Pakistani Style Kurti" data-price="1799" data-image="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=783&auto=format&fit=crop">
+                <span class="product-badge">Trending</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=783&auto=format&fit=crop" alt="Pakistani Kurti" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Kurtis</span>
+                    <h3 class="product-title">Pakistani Style</h3>
+                    <p class="product-desc">Long Anarkali, heavy work</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,799 <span class="original-price">₹2,799</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (89)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- ========== TOPS & TEES (8) ========== -->
+            <!-- Top 1 -->
+            <div class="product-card visible" data-category="top" data-id="w9" data-name="Printed Top" data-price="899" data-image="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=776&auto=format&fit=crop">
+                <span class="product-badge">New</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=776&auto=format&fit=crop" alt="Printed Top" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Tops</span>
+                    <h3 class="product-title">Printed Top</h3>
+                    <p class="product-desc">Viscose, floral print</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹899 <span class="original-price">₹1,499</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (178)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Top 2 -->
+            <div class="product-card visible" data-category="top" data-id="w10" data-name="Solid Top" data-price="699" data-image="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=870&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=870&auto=format&fit=crop" alt="Solid Top" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Tops</span>
+                    <h3 class="product-title">Solid Top</h3>
+                    <p class="product-desc">Cotton, multiple colors</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹699 <span class="original-price">₹999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (245)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Top 3 -->
+            <div class="product-card visible" data-category="top" data-id="w11" data-name="Off Shoulder Top" data-price="1299" data-image="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?q=80&w=774&auto=format&fit=crop">
+                <span class="product-badge">Trending</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?q=80&w=774&auto=format&fit=crop" alt="Off Shoulder" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Tops</span>
+                    <h3 class="product-title">Off Shoulder Top</h3>
+                    <p class="product-desc">Stylish, elastic sleeves</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,299 <span class="original-price">₹1,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (134)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Top 4 -->
+            <div class="product-card visible" data-category="top" data-id="w12" data-name="Peplum Top" data-price="1099" data-image="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=776&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=776&auto=format&fit=crop" alt="Peplum" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Tops</span>
+                    <h3 class="product-title">Peplum Top</h3>
+                    <p class="product-desc">Flared bottom, party wear</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,099 <span class="original-price">₹1,699</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (98)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Top 5 -->
+            <div class="product-card visible" data-category="top" data-id="w13" data-name="Crop Top" data-price="799" data-image="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=870&auto=format&fit=crop">
+                <span class="product-badge">Hot</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=870&auto=format&fit=crop" alt="Crop Top" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Tops</span>
+                    <h3 class="product-title">Crop Top</h3>
+                    <p class="product-desc">Casual, summer style</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹799 <span class="original-price">₹1,299</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (178)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Top 6 -->
+            <div class="product-card visible" data-category="top" data-id="w14" data-name="Tunic Top" data-price="1199" data-image="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?q=80&w=774&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?q=80&w=774&auto=format&fit=crop" alt="Tunic" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Tops</span>
+                    <h3 class="product-title">Tunic Top</h3>
+                    <p class="product-desc">Long length, comfortable</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,199 <span class="original-price">₹1,899</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (89)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Top 7 -->
+            <div class="product-card visible" data-category="top" data-id="w15" data-name="Lace Top" data-price="999" data-image="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=776&auto=format&fit=crop">
+                <span class="product-badge">Elegant</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=776&auto=format&fit=crop" alt="Lace Top" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Tops</span>
+                    <h3 class="product-title">Lace Top</h3>
+                    <p class="product-desc">Lace detail, semi-sheer</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹999 <span class="original-price">₹1,599</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (67)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Top 8 -->
+            <div class="product-card visible" data-category="top" data-id="w16" data-name="Graphic Tee" data-price="699" data-image="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=870&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=870&auto=format&fit=crop" alt="Graphic Tee" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Tops</span>
+                    <h3 class="product-title">Graphic Tee</h3>
+                    <p class="product-desc">Cotton, printed slogan</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹699 <span class="original-price">₹999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (156)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- ========== JEANS (8) ========== -->
+            <!-- Jeans 1 -->
+            <div class="product-card visible" data-category="jeans" data-id="w17" data-name="Skinny Jeans" data-price="1999" data-image="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=387&auto=format&fit=crop">
+                <span class="product-badge">-30%</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=387&auto=format&fit=crop" alt="Skinny Jeans" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Jeans</span>
+                    <h3 class="product-title">Skinny Jeans</h3>
+                    <p class="product-desc">High rise, stretch denim</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,999 <span class="original-price">₹2,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (245)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Jeans 2 -->
+            <div class="product-card visible" data-category="jeans" data-id="w18" data-name="Boyfriend Jeans" data-price="2199" data-image="https://images.unsplash.com/photo-1475178626620-a4d074967452?q=80&w=452&auto=format&fit=crop">
+                <span class="product-badge">Trending</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1475178626620-a4d074967452?q=80&w=452&auto=format&fit=crop" alt="Boyfriend" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Jeans</span>
+                    <h3 class="product-title">Boyfriend Jeans</h3>
+                    <p class="product-desc">Loose fit, casual</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹2,199 <span class="original-price">₹3,199</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (178)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Jeans 3 -->
+            <div class="product-card visible" data-category="jeans" data-id="w19" data-name="Bootcut Jeans" data-price="1899" data-image="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=387&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=387&auto=format&fit=crop" alt="Bootcut" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Jeans</span>
+                    <h3 class="product-title">Bootcut Jeans</h3>
+                    <p class="product-desc">Flared bottom, classic</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,899 <span class="original-price">₹2,799</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (134)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Jeans 4 -->
+            <div class="product-card visible" data-category="jeans" data-id="w20" data-name="High Waist Jeans" data-price="2099" data-image="https://images.unsplash.com/photo-1475178626620-a4d074967452?q=80&w=452&auto=format&fit=crop">
+                <span class="product-badge">Stylish</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1475178626620-a4d074967452?q=80&w=452&auto=format&fit=crop" alt="High Waist" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Jeans</span>
+                    <h3 class="product-title">High Waist Jeans</h3>
+                    <p class="product-desc">Tummy control, slim fit</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹2,099 <span class="original-price">₹2,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (156)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Jeans 5 -->
+            <div class="product-card visible" data-category="jeans" data-id="w21" data-name="Ripped Jeans" data-price="2299" data-image="https://images.unsplash.com/photo-1555689512-62b9e0c1b5a2?q=80&w=387&auto=format&fit=crop">
+                <span class="product-badge">Trending</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://tse2.mm.bing.net/th/id/OIP.5RvuE56tRvkDBlOSTR6PUAHaJ3?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ripped" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Jeans</span>
+                    <h3 class="product-title">Ripped Jeans</h3>
+                    <p class="product-desc">Distressed, stylish</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹2,299 <span class="original-price">₹3,299</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (112)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Jeans 6 -->
+            <div class="product-card visible" data-category="jeans" data-id="w22" data-name="Cigarette Jeans" data-price="1899" data-image="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=387&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=387&auto=format&fit=crop" alt="Cigarette" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Jeans</span>
+                    <h3 class="product-title">Cigarette Jeans</h3>
+                    <p class="product-desc">Ankle length, slim</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,899 <span class="original-price">₹2,699</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (89)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Jeans 7 -->
+            <div class="product-card visible" data-category="jeans" data-id="w23" data-name="Palazzo Pants" data-price="1599" data-image="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=697&auto=format&fit=crop">
+                <span class="product-badge">Comfort</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=697&auto=format&fit=crop" alt="Palazzo" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Jeans</span>
+                    <h3 class="product-title">Palazzo Pants</h3>
+                    <p class="product-desc">Wide leg, flowy</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,599 <span class="original-price">₹2,399</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (145)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Jeans 8 -->
+            <div class="product-card visible" data-category="jeans" data-id="w24" data-name="Capri Pants" data-price="1399" data-image="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=697&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=697&auto=format&fit=crop" alt="Capri" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Jeans</span>
+                    <h3 class="product-title">Capri Pants</h3>
+                    <p class="product-desc">3/4 length, summer</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,399 <span class="original-price">₹1,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (78)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- ========== SAREES (8) ========== -->
+            <!-- Saree 1 -->
+            <div class="product-card visible" data-category="saree" data-id="w25" data-name="Silk Saree" data-price="5999" data-image="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=387&auto=format&fit=crop">
+                <span class="product-badge">Wedding</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=387&auto=format&fit=crop" alt="Silk Saree" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Sarees</span>
+                    <h3 class="product-title">Silk Saree</h3>
+                    <p class="product-desc">Pure silk, zari border</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹5,999 <span class="original-price">₹8,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (89)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Saree 2 -->
+            <div class="product-card visible" data-category="saree" data-id="w26" data-name="Cotton Saree" data-price="2999" data-image="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=774&auto=format&fit=crop">
+                <span class="product-badge">Daily Wear</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=774&auto=format&fit=crop" alt="Cotton Saree" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Sarees</span>
+                    <h3 class="product-title">Cotton Saree</h3>
+                    <p class="product-desc">Handloom, comfortable</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹2,999 <span class="original-price">₹4,499</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (156)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Saree 3 -->
+            <div class="product-card visible" data-category="saree" data-id="w27" data-name="Georgette Saree" data-price="3999" data-image="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=387&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=387&auto=format&fit=crop" alt="Georgette" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Sarees</span>
+                    <h3 class="product-title">Georgette Saree</h3>
+                    <p class="product-desc">Printed, lightweight</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹3,999 <span class="original-price">₹5,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (112)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Saree 4 -->
+            <div class="product-card visible" data-category="saree" data-id="w28" data-name="Chiffon Saree" data-price="4499" data-image="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=774&auto=format&fit=crop">
+                <span class="product-badge">Party Wear</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=774&auto=format&fit=crop" alt="Chiffon" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Sarees</span>
+                    <h3 class="product-title">Chiffon Saree</h3>
+                    <p class="product-desc">Shimmery, festive</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹4,499 <span class="original-price">₹6,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (78)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Saree 5 -->
+            <div class="product-card visible" data-category="saree" data-id="w29" data-name="Banarasi Saree" data-price="8999" data-image="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=387&auto=format&fit=crop">
+                <span class="product-badge">Premium</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=387&auto=format&fit=crop" alt="Banarasi" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Sarees</span>
+                    <h3 class="product-title">Banarasi Saree</h3>
+                    <p class="product-desc">Rich silk, gold work</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹8,999 <span class="original-price">₹12,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (67)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Saree 6 -->
+            <div class="product-card visible" data-category="saree" data-id="w30" data-name="Net Saree" data-price="3499" data-image="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=774&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=774&auto=format&fit=crop" alt="Net Saree" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Sarees</span>
+                    <h3 class="product-title">Net Saree</h3>
+                    <p class="product-desc">Trendy, lightweight</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹3,499 <span class="original-price">₹5,499</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (98)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Saree 7 -->
+            <div class="product-card visible" data-category="saree" data-id="w31" data-name="Printed Saree" data-price="2499" data-image="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=387&auto=format&fit=crop">
+                <span class="product-badge">Casual</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=387&auto=format&fit=crop" alt="Printed" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Sarees</span>
+                    <h3 class="product-title">Printed Saree</h3>
+                    <p class="product-desc">Colorful, daily wear</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹2,499 <span class="original-price">₹3,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (134)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Saree 8 -->
+            <div class="product-card visible" data-category="saree" data-id="w32" data-name="Kanjivaram Saree" data-price="12999" data-image="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=387&auto=format&fit=crop">
+                <span class="product-badge">Luxury</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=387&auto=format&fit=crop" alt="Kanjivaram" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Sarees</span>
+                    <h3 class="product-title">Kanjivaram Saree</h3>
+                    <p class="product-desc">Pure silk, temple border</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹12,999 <span class="original-price">₹18,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (45)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- ========== FOOTWEAR (8) ========== -->
+            <!-- Shoe 1 -->
+            <div class="product-card visible" data-category="shoe" data-id="w33" data-name="Heels" data-price="2499" data-image="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=580&auto=format&fit=crop">
+                <span class="product-badge">Party</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=580&auto=format&fit=crop" alt="Heels" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Footwear</span>
+                    <h3 class="product-title">Stylish Heels</h3>
+                    <p class="product-desc">4 inch, comfortable</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹2,499 <span class="original-price">₹3,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (178)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Shoe 2 -->
+            <div class="product-card visible" data-category="shoe" data-id="w34" data-name="Flats" data-price="1299" data-image="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=387&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=387&auto=format&fit=crop" alt="Flats" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Footwear</span>
+                    <h3 class="product-title">Comfort Flats</h3>
+                    <p class="product-desc">Daily wear, cushioned</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,299 <span class="original-price">₹1,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (234)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Shoe 3 -->
+            <div class="product-card visible" data-category="shoe" data-id="w35" data-name="Wedges" data-price="1899" data-image="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=580&auto=format&fit=crop">
+                <span class="product-badge">Trending</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=580&auto=format&fit=crop" alt="Wedges" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Footwear</span>
+                    <h3 class="product-title">Fashion Wedges</h3>
+                    <p class="product-desc">Platform, stylish</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,899 <span class="original-price">₹2,899</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (145)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Shoe 4 -->
+            <div class="product-card visible" data-category="shoe" data-id="w36" data-name="Bellies" data-price="999" data-image="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=387&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=387&auto=format&fit=crop" alt="Bellies" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Footwear</span>
+                    <h3 class="product-title">Bellies</h3>
+                    <p class="product-desc">Casual, backless</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹999 <span class="original-price">₹1,599</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (156)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Shoe 5 -->
+            <div class="product-card visible" data-category="shoe" data-id="w37" data-name="Sports Shoes" data-price="2999" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=870&auto=format&fit=crop">
+                <span class="product-badge">Sports</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=870&auto=format&fit=crop" alt="Sports" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Footwear</span>
+                    <h3 class="product-title">Sports Shoes</h3>
+                    <p class="product-desc">Running, breathable</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹2,999 <span class="original-price">₹4,499</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (89)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Shoe 6 -->
+            <div class="product-card visible" data-category="shoe" data-id="w38" data-name="Sandals" data-price="799" data-image="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=387&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=387&auto=format&fit=crop" alt="Sandals" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Footwear</span>
+                    <h3 class="product-title">Flat Sandals</h3>
+                    <p class="product-desc">Summer, comfortable</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹799 <span class="original-price">₹1,299</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (178)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Shoe 7 -->
+            <div class="product-card visible" data-category="shoe" data-id="w39" data-name="Boots" data-price="3999" data-image="https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=735&auto=format&fit=crop">
+                <span class="product-badge">Winter</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=735&auto=format&fit=crop" alt="Boots" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Footwear</span>
+                    <h3 class="product-title">Ankle Boots</h3>
+                    <p class="product-desc">Fashion, heeled</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹3,999 <span class="original-price">₹5,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (67)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Shoe 8 -->
+            <div class="product-card visible" data-category="shoe" data-id="w40" data-name="Slippers" data-price="499" data-image="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=387&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=387&auto=format&fit=crop" alt="Slippers" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Footwear</span>
+                    <h3 class="product-title">House Slippers</h3>
+                    <p class="product-desc">Soft, comfortable</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹499 <span class="original-price">₹799</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (245)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- ========== HANDBAGS (8) ========== -->
+            <!-- Bag 1 -->
+            <div class="product-card visible" data-category="bag" data-id="w41" data-name="Tote Bag" data-price="1899" data-image="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=435&auto=format&fit=crop">
+                <span class="product-badge">Bestseller</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=435&auto=format&fit=crop" alt="Tote" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Handbags</span>
+                    <h3 class="product-title">Canvas Tote Bag</h3>
+                    <p class="product-desc">Large capacity, casual</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,899 <span class="original-price">₹2,899</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (178)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Bag 2 -->
+            <div class="product-card visible" data-category="bag" data-id="w42" data-name="Shoulder Bag" data-price="1599" data-image="https://images.unsplash.com/photo-1591561954557-26941169b0e7?q=80&w=387&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://tse1.mm.bing.net/th/id/OIP.A8BoVSPsjy0W9Sh9Tq6A4AHaIl?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Shoulder" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Handbags</span>
+                    <h3 class="product-title">Shoulder Bag</h3>
+                    <p class="product-desc">PU leather, stylish</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,599 <span class="original-price">₹2,499</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (145)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Bag 3 -->
+            <div class="product-card visible" data-category="bag" data-id="w43" data-name="Clutch" data-price="999" data-image="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=435&auto=format&fit=crop">
+                <span class="product-badge">Party</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=435&auto=format&fit=crop" alt="Clutch" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Handbags</span>
+                    <h3 class="product-title">Evening Clutch</h3>
+                    <p class="product-desc">Shimmery, chain strap</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹999 <span class="original-price">₹1,599</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (134)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Bag 4 -->
+            <div class="product-card visible" data-category="bag" data-id="w44" data-name="Backpack" data-price="2499" data-image="https://images.unsplash.com/photo-1622560480605-d6c0b85758d5?q=80&w=387&auto=format&fit=crop">
+                <span class="product-badge">Travel</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://i5.walmartimages.com/asr/29c343ee-2612-4ab1-89d8-bcd4f10f9164_1.65c3b9e4f052012038dc3b9b9b572b43.jpeg" alt="Backpack" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Handbags</span>
+                    <h3 class="product-title">Fashion Backpack</h3>
+                    <p class="product-desc">Water resistant, laptop</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹2,499 <span class="original-price">₹3,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (89)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Bag 5 -->
+            <div class="product-card visible" data-category="bag" data-id="w45" data-name="Sling Bag" data-price="1299" data-image="https://images.unsplash.com/photo-1591561954557-26941169b0e7?q=80&w=387&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://cdn.fcglcdn.com/brainbees/images/products/583x720/17929223a.webp" alt="Sling" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Handbags</span>
+                    <h3 class="product-title">Sling Bag</h3>
+                    <p class="product-desc">Crossbody, casual</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,299 <span class="original-price">₹1,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (112)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Bag 6 -->
+            <div class="product-card visible" data-category="bag" data-id="w46" data-name="Hobo Bag" data-price="1799" data-image="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=435&auto=format&fit=crop">
+                <span class="product-badge">Trending</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=435&auto=format&fit=crop" alt="Hobo" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Handbags</span>
+                    <h3 class="product-title">Hobo Bag</h3>
+                    <p class="product-desc">Crescent shape, trendy</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,799 <span class="original-price">₹2,799</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (78)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Bag 7 -->
+            <div class="product-card visible" data-category="bag" data-id="w47" data-name="Wristlet" data-price="699" data-image="https://images.unsplash.com/photo-1591561954557-26941169b0e7?q=80&w=387&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://tse1.mm.bing.net/th/id/OIP.ZH1J_AUFWCx0XRAcJ5RaIQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Wristlet" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Handbags</span>
+                    <h3 class="product-title">Wristlet</h3>
+                    <p class="product-desc">Small, essentials</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹699 <span class="original-price">₹1,099</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (98)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Bag 8 -->
+            <div class="product-card visible" data-category="bag" data-id="w48" data-name="Satchel" data-price="2199" data-image="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=435&auto=format&fit=crop">
+                <span class="product-badge">Office</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=435&auto=format&fit=crop" alt="Satchel" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Handbags</span>
+                    <h3 class="product-title">Satchel Bag</h3>
+                    <p class="product-desc">Structured, professional</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹2,199 <span class="original-price">₹3,299</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (67)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- ========== COSMETICS (8) ========== -->
+            <!-- Cosmetic 1 -->
+            <div class="product-card visible" data-category="cosmetic" data-id="w49" data-name="Lipstick Set" data-price="1299" data-image="https://images.unsplash.com/photo-1586495777744-4413f21062fa?q=80&w=580&auto=format&fit=crop">
+                <span class="product-badge">Bestseller</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?q=80&w=580&auto=format&fit=crop" alt="Lipstick" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Cosmetics</span>
+                    <h3 class="product-title">Lipstick Set</h3>
+                    <p class="product-desc">6 shades, matte</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,299 <span class="original-price">₹1,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (245)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Cosmetic 2 -->
+            <div class="product-card visible" data-category="cosmetic" data-id="w50" data-name="Foundation" data-price="899" data-image="https://images.unsplash.com/photo-1631730311655-b38d6f3e5b98?q=80&w=580&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://i5.walmartimages.com/seo/Revlon-ColorStay-Liquid-Foundation-Makeup-Normal-Dry-Skin-SPF-20-392-Sun-Beige-1-fl-oz_2255082c-e7d0-4a0d-8af0-c06a3c8436a5.de16f0782fcb0ec51f0953a429c1d372.jpeg" alt="Foundation" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Cosmetics</span>
+                    <h3 class="product-title">Liquid Foundation</h3>
+                    <p class="product-desc">Full coverage, 5 shades</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹899 <span class="original-price">₹1,399</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (178)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Cosmetic 3 -->
+            <div class="product-card visible" data-category="cosmetic" data-id="w51" data-name="Eyeshadow Palette" data-price="1499" data-image="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=870&auto=format&fit=crop">
+                <span class="product-badge">Trending</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=870&auto=format&fit=crop" alt="Eyeshadow" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Cosmetics</span>
+                    <h3 class="product-title">Eyeshadow Palette</h3>
+                    <p class="product-desc">18 colors, pigmented</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹1,499 <span class="original-price">₹2,499</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (134)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Cosmetic 4 -->
+            <div class="product-card visible" data-category="cosmetic" data-id="w52" data-name="Mascara" data-price="599" data-image="https://images.unsplash.com/photo-1586495777744-4413f21062fa?q=80&w=580&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?q=80&w=580&auto=format&fit=crop" alt="Mascara" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Cosmetics</span>
+                    <h3 class="product-title">Volumizing Mascara</h3>
+                    <p class="product-desc">Waterproof, long lasting</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹599 <span class="original-price">₹999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (156)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Cosmetic 5 -->
+            <div class="product-card visible" data-category="cosmetic" data-id="w53" data-name="Kajal" data-price="399" data-image="https://images.unsplash.com/photo-1631730311655-b38d6f3e5b98?q=80&w=580&auto=format&fit=crop">
+                <span class="product-badge">Essential</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://cdn.tirabeauty.com/v2/billowing-snowflake-434234/tira-p/wrkr/products/pictures/item/free/original/1120966/bfHTyFAOr0-1120966_1.jpg" alt="Kajal" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Cosmetics</span>
+                    <h3 class="product-title">Kajal</h3>
+                    <p class="product-desc">Smudge proof, black</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹399 <span class="original-price">₹599</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (312)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Cosmetic 6 -->
+            <div class="product-card visible" data-category="cosmetic" data-id="w54" data-name="Blush" data-price="699" data-image="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=870&auto=format&fit=crop">
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=870&auto=format&fit=crop" alt="Blush" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Cosmetics</span>
+                    <h3 class="product-title">Blush Powder</h3>
+                    <p class="product-desc">Natural finish, 3 shades</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹699 <span class="original-price">₹1,099</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (89)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Cosmetic 7 -->
+            <div class="product-card visible" data-category="cosmetic" data-id="w55" data-name="Compact Powder" data-price="799" data-image="https://images.unsplash.com/photo-1586495777744-4413f21062fa?q=80&w=580&auto=format&fit=crop">
+                <span class="product-badge">Daily</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?q=80&w=580&auto=format&fit=crop" alt="Compact" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Cosmetics</span>
+                    <h3 class="product-title">Compact Powder</h3>
+                    <p class="product-desc">Oil control, with mirror</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹799 <span class="original-price">₹1,299</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (178)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Cosmetic 8 -->
+            <div class="product-card visible" data-category="cosmetic" data-id="w56" data-name="Perfume" data-price="2499" data-image="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=804&auto=format&fit=crop">
+                <span class="product-badge">Luxury</span>
+                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=804&auto=format&fit=crop" alt="Perfume" loading="lazy">
+                <div class="product-info">
+                    <span class="product-category-tag">Cosmetics</span>
+                    <h3 class="product-title">Women Perfume</h3>
+                    <p class="product-desc">Floral, long lasting</p>
+                    <div class="product-price-row">
+                        <div class="product-price">₹2,499 <span class="original-price">₹3,999</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (134)</div>
+                    </div>
+                    <button class="add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sale Banner -->
+    <div class="sale-banner">
+        <div class="banner-content">
+            <h2>🌸 WOMEN'S SUMMER SALE</h2>
+            <p>Get up to 50% off on selected items</p>
+            <a href="#" class="banner-btn">SHOP NOW</a>
+        </div>
+        <div class="banner-image">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=870&auto=format&fit=crop" alt="Summer Sale" style="width: 200px; border-radius: 30px; border: 3px solid white;">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="one">
+            <div class="footer-box">
+                <h3><a href="about.html">About Us >></a></h3>
+                <p>Your one-stop destination for trendy fashion.</p>
+            </div>
+            <div class="footer-box">
+                <h3>Quick Links >></h3>
+                <ul>
+                    <li><a href="mens.html"><i class="fa-solid fa-person"></i> Mens</a></li>
+                    <li><a href="womens.html"><i class="fa-solid fa-person-half-dress"></i> Womens</a></li>
+                    <li><a href="lookbook.html"><i class="fa-solid fa-images"></i> Look Book</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>Help >></h3>
+                <ul>
+                    <li><a href="contact.html"><i class="fa-solid fa-phone"></i> Contact Us</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-person-circle-question"></i>About Us</a></li>
+                    <li><a href="checkout.html"><i class="fa-solid fa-bag-shopping"></i> Checkout</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>Contact >></h3>
+                <p><i class="fa-solid fa-phone"></i> 8764841243<br>
+                   <i class="fa-solid fa-envelope"></i>RkLogixTech@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-social">
+            Follow: <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a> | <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a> | <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/918764841243?text=Hi!%20I%20have%20a%20question%20about%20Women's%20Collection" class="whatsapp-btn" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with us!</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu
+            const hamburger = document.getElementById('hamburger');
+            const nav = document.getElementById('nav');
+            const overlay = document.getElementById('overlay');
+
+            function openMenu() {
+                nav.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            if (hamburger) hamburger.addEventListener('click', openMenu);
+            if (overlay) overlay.addEventListener('click', closeMenu);
+
+            document.querySelectorAll('#menu a').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // Wishlist
+            document.querySelectorAll('.product-wishlist').forEach(wishlist => {
+                wishlist.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    if (this.classList.contains('active')) {
+                        icon.classList.remove('fa-regular');
+                        icon.classList.add('fa-solid');
+                    } else {
+                        icon.classList.remove('fa-solid');
+                        icon.classList.add('fa-regular');
+                    }
+                });
+            });
+
+            // FILTER FUNCTIONALITY
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+
+            function filterProducts(category) {
+                productCards.forEach(card => {
+                    if (category === 'all') {
+                        card.classList.add('visible');
+                    } else {
+                        if (card.dataset.category === category) {
+                            card.classList.add('visible');
+                        } else {
+                            card.classList.remove('visible');
+                        }
+                    }
+                });
+            }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const filterValue = this.dataset.filter;
+                    filterProducts(filterValue);
+                });
+            });
+
+            // Window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 900) closeMenu();
+            });
+        });
+    </script>
+</body>
+</html>
